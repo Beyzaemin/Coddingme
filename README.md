@@ -1,4 +1,4 @@
-# Coddingme
+# Coddingme (calculate geosaptial coordinate using Guass method)
 import numpy as np
 
 def nptan(a) :
