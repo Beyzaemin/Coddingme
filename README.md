@@ -1,0 +1,2 @@
+# Coddingme
+Python / data anlyst 
