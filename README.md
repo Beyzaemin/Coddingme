@@ -1,4 +1,13 @@
 # Coddingme (calculate geosaptial coordinate using Guass method)
+"""The Gauss method, also known as the Gauss-Krüger method, is used to calculate geospatial coordinates. Here's a simplified summary of the steps involved:
+
+Determine the central meridian for the Gauss-Krüger zone.
+Find the difference between the central meridian and the longitude of the point you want to calculate coordinates for.
+Convert the delta longitude to radians.
+Calculate the northing by multiplying the latitude, scale factor, and Earth's radius.
+Calculate the easting using a formula involving arc length, delta longitude, and false easting.
+Add the false easting and false northing to obtain the final coordinates.
+Note that this summary provides a basic overview, and actual implementations may involve more complexity and specialized tools"""
 import numpy as np
 
 def nptan(a) :
