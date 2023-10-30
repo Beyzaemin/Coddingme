@@ -1,0 +1,167 @@
+import matplotlib.pyplot as plt
+
+# Data
+data = {'apples': 20, 'Mangoes': 15, 'lemon': 30, 'Oranges': 10}
+names = list(data.keys())
+values = list(data.values())
+
+# Line Plot
+plt.figure(figsize=(8, 4))
+plt.plot(names, values, marker='o')
+plt.title("Line Plot Demo")
+plt.xlabel("Fruits")
+plt.ylabel("Quantity")
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(8, 4))
+plt.scatter(names, values, color='red', marker='o')
+plt.title("Scatter Plot Demo")
+plt.xlabel("Fruits")
+plt.ylabel("Quantity")
+plt.show()
+
+# Bar Chart
+plt.figure(figsize=(8, 4))
+plt.bar(names, values, color='blue')
+plt.title("Bar Chart Demo")
+plt.xlabel("Fruits")
+plt.ylabel("Quantity")
+plt.show()
+
+# Histogram
+plt.figure(figsize=(8, 4))
+plt.hist(values, bins=5, color='green', alpha=0.7)
+plt.title("Histogram Demo")
+plt.xlabel("Quantity")
+plt.ylabel("Frequency")
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(8, 4))
+plt.boxplot(values, vert=False)
+plt.title("Box Plot Demo")
+plt.xlabel("Quantity")
+plt.show()
+
+# Pie Chart
+plt.figure(figsize=(8, 4))
+plt.pie(values, labels=names, autopct='%1.1f%%', colors=['gold', 'yellowgreen', 'lightcoral', 'lightskyblue'])
+plt.title("Pie Chart Demo")
+plt.show()
+
+# Area Plot
+plt.figure(figsize=(8, 4))
+plt.fill_between(names, values, color='purple', alpha=0.6)
+plt.title("Area Plot Demo")
+plt.xlabel("Fruits")
+plt.ylabel("Quantity")
+plt.show()
+
+# Heatmap
+import numpy as np
+plt.figure(figsize=(8, 4))
+data_matrix = np.random.rand(4, 4)
+plt.imshow(data_matrix, cmap='viridis')
+plt.title("Heatmap Demo")
+plt.colorbar()
+plt.show()
+
+# 3D Plot
+from mpl_toolkits.mplot3d import Axes3D
+fig = plt.figure(figsize=(8, 4))
+ax = fig.add_subplot(111, projection='3d')
+x = np.arange(4)
+y = np.arange(4)
+x, y = np.meshgrid(x, y)
+z = np.random.rand(4, 4)
+ax.plot_surface(x, y, z, cmap='viridis')
+plt.title("3D Plot Demo")
+plt.show()
+
+# Polar Plot
+plt.figure(figsize=(8, 4))
+theta = np.linspace(0, 2*np.pi, len(names))
+plt.polar(theta, values)
+plt.title("Polar Plot Demo")
+plt.show()
+
+# Error Bars
+x = np.arange(len(names))
+y = values
+y_err = np.random.rand(len(names))
+plt.figure(figsize=(8, 4))
+plt.errorbar(x, y, yerr=y_err, fmt='o', color='purple', ecolor='red', capsize=5)
+plt.title("Error Bar Demo")
+plt.xticks(x, names)
+plt.xlabel("Fruits")
+plt.ylabel("Quantity")
+plt.show()
+
+# Contour Plot
+x = np.linspace(0, 1, 10)
+y = np.linspace(0, 1, 10)
+X, Y = np.meshgrid(x, y)
+Z = X**2 + Y**2
+plt.figure(figsize=(8, 4))
+contour = plt.contour(X, Y, Z, colors='blue')
+plt.clabel(contour, inline=True, fontsize=8)
+plt.title("Contour Plot Demo")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
+
+# Quiver Plot
+x = np.linspace(0, 1, 10)
+y = np.linspace(0, 1, 10)
+X, Y = np.meshgrid(x, y)
+U = np.sin(2*np.pi*X) * np.cos(2*np.pi*Y)
+V = -np.cos(2*np.pi*X) * np.sin(2*np.pi*Y)
+plt.figure(figsize=(8, 4))
+plt.quiver(X, Y, U, V, scale=20)
+plt.title("Quiver Plot Demo")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
+
+# Violin Plot
+data = [values, values[::-1], values[1:] + [5]]
+plt.figure(figsize=(8, 4))
+plt.violinplot(data, showmedians=True)
+plt.title("Violin Plot Demo")
+plt.ylabel("Value")
+plt.xticks([1, 2, 3], ['Data 1', 'Data 2', 'Data 3'])
+plt.show()
+
+# Radar Chart
+categories = list(data.keys())
+values = [20, 25, 30, 35]
+plt.figure(figsize=(8, 4))
+ax = plt.subplot(111, polar=True)
+ax.fill(categories + categories[:1], values + values[:1], color='red', alpha=0.25)
+ax.set_yticklabels([])
+plt.title("Radar Chart Demo")
+plt.show()
+
+# Streamplot
+x = np.linspace(0, 1, 10)
+y = np.linspace(0, 1, 10)
+X, Y = np.meshgrid(x, y)
+U = np.sin(2*np.pi*X) * np.cos(2*np.pi*Y)
+V = -np.cos(2*np.pi*X) * np.sin(2*np.pi*Y)
+plt.figure(figsize=(8, 4))
+plt.streamplot(X, Y, U, V, density=[0.5, 1])
+plt.title("Streamplot Demo")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
+
+# Hexbin Plot
+x = np.random.rand(100)
+y = np.random.rand(100)
+plt.figure(figsize=(8, 4))
+plt.hexbin(x, y, gridsize=10, cmap='Blues')
+plt.title("Hexbin Plot Demo")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
