@@ -1,3 +1,5 @@
+#YOLO is an object detection algorithm that aims to detect objects in images or video frames in real-time.
+
 import cv2
 import numpy as np
 
